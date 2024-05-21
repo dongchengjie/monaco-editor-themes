@@ -1,0 +1,15 @@
+{
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.configPath": ".prettierrc",
+  "files.exclude": {
+    ".vscode": true
+  },
+  "search.exclude": {
+    "themes": true
+  }
+}

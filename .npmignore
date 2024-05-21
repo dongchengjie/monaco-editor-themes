@@ -1,0 +1,8 @@
+.gitattributes
+.github
+.prettierrc
+.vscode
+node_modules
+scripts
+tsconfig.json
+vscode

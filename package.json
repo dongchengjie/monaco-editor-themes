@@ -1,0 +1,24 @@
+{
+  "name": "monaco-editor-themes",
+  "version": "0.0.1",
+  "description": "themes",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./scripts/build.mjs"
+  },
+  "keywords": [
+    "themes"
+  ],
+  "author": "dongchengjie",
+  "license": "MIT",
+  "dependencies": {
+    "monaco-editor": "^0.48.0"
+  },
+  "devDependencies": {
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.2.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "vscode-theme-to-monaco-theme-node": "^1.0.0"
+  }
+}

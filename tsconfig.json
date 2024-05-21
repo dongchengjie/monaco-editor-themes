@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "target": "es2020",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "declaration": true
+  },
+  "include": ["index.ts"],
+  "exclude": ["node_modules"]
+}
