@@ -18,8 +18,16 @@ namespace Themes {
     name: string;
   };
 
+  /**
+   * Register theme into monaco-editor.
+   * @param name  theme name you want to name.
+   * @param theme theme data object.
+   */
   export const register = (name: string, theme: editor.IStandaloneThemeData) => editor.defineTheme(name, theme);
 
+  /**
+   * Global theme references.
+   */
   export const themes = {
     light: {
       "atom": { name: "Atom One Light", ...L_Atom } as Theme,

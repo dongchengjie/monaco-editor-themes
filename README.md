@@ -4,7 +4,7 @@
 npm install monaco-editor-themes
 ```
 
-## Usage
+# Usage
 
 ```typescript
 import * as monaco from "monaco-editor";
