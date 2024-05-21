@@ -1,10 +1,16 @@
 import { editor } from "monaco-editor";
 
 // light themes
-import github from "./themes/light/github";
+import atomLight from "./themes/light/atom";
+import githubLight from "./themes/light/github";
+import materialLight from "./themes/light/material";
 
 // dark themes
+import atomDark from "./themes/dark/atom";
+import darcula from "./themes/dark/darcula";
 import githubDark from "./themes/dark/github";
+import material from "./themes/dark/material";
+import monokaiPro from "./themes/dark/monokai-pro";
 import oneDarkPro from "./themes/dark/one-dark-pro";
 
 namespace Themes {
@@ -12,7 +18,9 @@ namespace Themes {
 
   export const themes = {
     light: {
-      "github": github,
+      "atom": atomLight,
+      "github": githubLight,
+      "material": materialLight,
     },
     dark: {
       "github": githubDark,

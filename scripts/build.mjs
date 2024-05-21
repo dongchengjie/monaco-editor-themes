@@ -22,14 +22,23 @@ import { exec } from "child_process";
   });
 
   // generate .js files and d.ts files
-  exec("tsc --showConfig", (_, stdout) => {
-    console.log(`🛠️  Compiling via typescript with config: \n${chalk.green(stdout.trim())}`);
-    exec("tsc", (error, stdout) => {
-      if (error) {
-        console.error(`❌ ${chalk.red(error.message + " " + stdout)}`);
-      } else {
-        console.log("✅ Compilation completed");
-      }
+  let result = await new Promise((resolve, reject) => {
+    exec("tsc --showConfig", (_, stdout) => {
+      console.log(`🛠️  Compiling via typescript with config: \n${chalk.green(stdout.trim())}`);
+      exec("tsc --version", (_, stdout) => {
+        console.log(`🔧 Typescript ${chalk.green(stdout.trim())}`);
+        exec("tsc", (error, stdout) =>
+          resolve({
+            flag: !error,
+            message: !error ? `✅ Compilation completed` : `${chalk.red(error.message + " " + stdout)}`,
+          }),
+        );
+      });
     });
   });
+  if (result.flag) {
+    console.log(result.message);
+  } else {
+    throw new Error(result.message);
+  }
 })();
