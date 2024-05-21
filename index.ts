@@ -1,30 +1,38 @@
 import { editor } from "monaco-editor";
 
 // light themes
-import atomLight from "./themes/light/atom";
-import githubLight from "./themes/light/github";
-import materialLight from "./themes/light/material";
+import L_Atom from "./themes/light/atom";
+import L_Github from "./themes/light/github";
+import L_Material from "./themes/light/material";
 
 // dark themes
-import atomDark from "./themes/dark/atom";
-import darcula from "./themes/dark/darcula";
-import githubDark from "./themes/dark/github";
-import material from "./themes/dark/material";
-import monokaiPro from "./themes/dark/monokai-pro";
-import oneDarkPro from "./themes/dark/one-dark-pro";
+import D_Atom from "./themes/dark/atom";
+import D_Darcula from "./themes/dark/darcula";
+import D_Github from "./themes/dark/github";
+import D_Material from "./themes/dark/material";
+import D_MonokaiPro from "./themes/dark/monokai-pro";
+import D_OneDarkPro from "./themes/dark/one-dark-pro";
 
 namespace Themes {
+  export type Theme = editor.IStandaloneThemeData & {
+    name: string;
+  };
+
   export const register = (name: string, theme: editor.IStandaloneThemeData) => editor.defineTheme(name, theme);
 
   export const themes = {
     light: {
-      "atom": atomLight,
-      "github": githubLight,
-      "material": materialLight,
+      "atom": { name: "Atom One Light", ...L_Atom } as Theme,
+      "github": { name: "GitHub Light", ...L_Github } as Theme,
+      "material": { name: "Material Theme Light", ...L_Material } as Theme,
     },
     dark: {
-      "github": githubDark,
-      "one-dark-pro": oneDarkPro,
+      "atom": { name: "Atom One Dark", ...D_Atom } as Theme,
+      "darcula": { name: "Darcula", ...D_Darcula } as Theme,
+      "github": { name: "GitHub Light", ...D_Github } as Theme,
+      "material": { name: "Material Theme Dark", ...D_Material } as Theme,
+      "monokai-pro": { name: "Monokai Pro", ...D_MonokaiPro } as Theme,
+      "one-dark-pro": { name: "One Dark Pro", ...D_OneDarkPro } as Theme,
     },
   };
 }

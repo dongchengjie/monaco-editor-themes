@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import fs from "fs-extra";
-import path from "path";
+import path, { format } from "path";
 import { convert } from "./convert.mjs";
 import { exec } from "child_process";
 
@@ -22,7 +22,7 @@ import { exec } from "child_process";
   });
 
   // generate .js files and d.ts files
-  let result = await new Promise((resolve, reject) => {
+  let result = await new Promise(resolve => {
     exec("tsc --showConfig", (_, stdout) => {
       console.log(`🛠️  Compiling via typescript with config: \n${chalk.green(stdout.trim())}`);
       exec("tsc --version", (_, stdout) => {
@@ -41,4 +41,12 @@ import { exec } from "child_process";
   } else {
     throw new Error(result.message);
   }
+
+  // prettier
+  await new Promise(resolve => {
+    exec("npx prettier --config .prettierrc --write --log-level debug --ignore-patt none themes", () => {
+      console.log(`🎨 Beautification completed`);
+      resolve();
+    });
+  });
 })();

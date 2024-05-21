@@ -1,16 +1,26 @@
 {
   "name": "monaco-editor-themes",
   "version": "0.0.1",
-  "description": "themes",
-  "main": "index.js",
+  "description": "Themes for monaco-editor",
+  "keywords": [
+    "monaco-editor",
+    "theme"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "homepage": "https://github.com/dongchengjie/monaco-editor-themes",
+  "bugs": {
+    "url": "https://github.com/dongchengjie/monaco-editor-themes/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dongchengjie/monaco-editor-themes"
+  },
   "scripts": {
     "build": "node ./scripts/build.mjs"
   },
-  "keywords": [
-    "themes"
-  ],
-  "author": "dongchengjie",
-  "license": "MIT",
   "dependencies": {
     "monaco-editor": "^0.48.0"
   },

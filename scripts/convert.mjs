@@ -4,26 +4,7 @@ import prettier from "prettier";
 import { convertThemeFromFilePath } from "vscode-theme-to-monaco-theme-node";
 
 const format = async (content, parser) => {
-  const options = {
-    parser: parser,
-    "printWidth": 120,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": false,
-    "quoteProps": "preserve",
-    "jsxSingleQuote": false,
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "bracketSameLine": false,
-    "arrowParens": "avoid",
-    "proseWrap": "preserve",
-    "htmlWhitespaceSensitivity": "css",
-    "vueIndentScriptAndStyle": false,
-    "endOfLine": "lf",
-    "embeddedLanguageFormatting": "auto",
-    "singleAttributePerLine": false,
-  };
+  const options = { parser, ...JSON.parse(fs.readFileSync(".prettierrc")) };
   return await prettier.format(content, options).then(formatted => formatted);
 };
 
